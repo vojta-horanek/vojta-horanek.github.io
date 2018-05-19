@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <link rel="shortcut icon" href="favicon.ico" />
 <head>
   <title>Vojtěch Hořánek</title>
@@ -9,9 +9,17 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-  	<h1 class="text-header">Hello stranger, I'm Vojtěch Hořánek.</h1>
-  	<p class="text-body" style="margin-bottom: 24px; margin-top: 0; text-shadow: 5px 5px 10px #222222;">Here are some projects I've worked on:</p>
-  	<div class="card">
+<div class="page-header">
+	<h1 class="text-header">Hello stranger, I'm Vojtěch Hořánek.</h1>
+<div class="tabs">
+	<a id="tab-home" href="#" style="border-bottom:2px solid white;">Home</a>
+	<a id="tab-posts" href="#">Posts</a>
+	<a id="tab-links" href="#">Links</a>
+</div>
+</div>	
+<div class="page-content" id="home">
+	<div class="card">	
+	<p class="text-body" style="margin-bottom: 24px; margin-top: 0; color: #000; font-size:1.5em;"><b>Here are some projects I've worked on:</b></p>
   		<div class="card-item">
   			<p class="text-body" style="margin-top: 0;"><b>APKMirror</b> - an APKMirror android client</p>
   			<a href="https://labs.xda-developers.com/store/app/cf.vojtechh.apkmirror" target="_blank"><input class="mat-button" type="button" value="XDA Labs"></a>
@@ -31,12 +39,17 @@
 	  		</div>
 		</div>
 	</div>
-	<div class="card">
+	
+</div>
+<div class="page-content" id="posts" style="display: none;">
+	<div class="card">		
 		<div class="card-item">
 			<p class="text-body" style="margin-top: 0;"><b>Now HTTPS!</b></p>
 			<p class="text-body"> As you might have noticed, this website is now using https thanks to cloudflare. I don't really know why is it usefull here, but it makes it look more official. I'm also using github pages for webhosting since this page is completely static and I had no reason to keep using hostinger.</p>
 		</div>
 	</div>
+</div>
+<div class="page-content" id="links" style="display:none;">
 	<div class="card">
 		<div class="card-item">
 			<p class="text-body" style="margin-top: 0;"><b>Useful links</b></p>
@@ -45,12 +58,40 @@
 			<a href="https://github.com/vojta-horanek" target="_blank"><input class="mat-button" type="button" value="GitHub"></a>
 			<a href="https://forum.xda-developers.com/member.php?u=6679101" target="_blank"><input class="mat-button" type="button" value="XDA"></a>
 			<a href="mailto:vojtechhoranek@gmail.com" target="_blank"><input class="mat-button" type="button" value="Email"></a>
-			<p class="text-body" style="font-size: 15px; text-align: right; margin: 0;"><i>by vojtechh</i></p>
 		</div>
 	</div>
-	<div class="footer">
+</div>
+	<div class="footer" style="background: linear-gradient(#212121, #323232);">
+
 		<img src="profile.png" class="round-image" style="position: relative; margin: auto 0; width: 75px; height: 75px;">
 		<a href="win.jpg"><img src="nothing.gif" width="1%" height="1%"></a>
-	</div>
+	<p class="text-body" style="padding: 16px; font-size: 15px; text-align: right; margin: 0;"><i>by vojtechh</i></p>
+		</div>
 </body>
+<script>
+document.getElementById("tab-home").onclick = function() {
+	document.getElementById("tab-home").style.borderBottom = "2px solid white";
+	document.getElementById("tab-posts").style.borderBottom = "0 solid white";
+	document.getElementById("tab-links").style.borderBottom = "0 solid white";
+    	document.getElementById("home").style.display = "block";
+	document.getElementById("posts").style.display = "none";
+	document.getElementById("links").style.display = "none";	
+}
+document.getElementById("tab-posts").onclick = function() {        
+	document.getElementById("tab-home").style.borderBottom = "0 solid white";
+        document.getElementById("tab-posts").style.borderBottom = "2px solid white";
+        document.getElementById("tab-links").style.borderBottom = "0 solid white";
+        document.getElementById("home").style.display = "none";
+        document.getElementById("posts").style.display = "block";
+        document.getElementById("links").style.display = "none";        
+}
+document.getElementById("tab-links").onclick = function() {
+        document.getElementById("tab-home").style.borderBottom = "0 solid white";
+        document.getElementById("tab-posts").style.borderBottom = "0 solid white";
+        document.getElementById("tab-links").style.borderBottom = "2px solid white";
+        document.getElementById("home").style.display = "none";
+        document.getElementById("posts").style.display = "none";
+        document.getElementById("links").style.display = "block";        
+}
+</script>
 </html>
